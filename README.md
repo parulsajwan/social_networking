@@ -9,6 +9,10 @@
 4. **Run command to start docker container**- Docker compose up -d/ docker compose up
 
 
+### To Check the API use postman collection shared:
+social_networking.postman_environment.json
+Social Networking.postman_collection.json
+
 
 ### API Details
 
