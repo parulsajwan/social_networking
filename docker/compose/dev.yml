@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app: &app
+    stdin_open: true
+    tty: true
+    networks:
+      - default
+
+  db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - default
+
+  nginx:
+    ports:
+      - "8000:80"
+
+volumes:
+  postgres_data:

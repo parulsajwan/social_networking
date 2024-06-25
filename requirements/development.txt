@@ -1,0 +1,9 @@
+# Development Requirement
+
+# Import Base Requirement
+-r base.txt
+
+ipdb
+psycopg2
+python-dotenv
+

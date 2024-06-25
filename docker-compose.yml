@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: social_networking_app
+    hostname: app-docker-social-networking-backend
+    image: social_networking_app
+    restart: always
+    command: bash -c "/app/runserver.sh"
+    volumes:
+      - .:/app
+    env_file:
+      - ./.env
+
+  nginx:
+    build: ./docker/nginx
+    image: social_networking_app_ngnix
+    hostname: nginx-docker-social-networking-backend
+    container_name: social_networking_app_ngnix
+    volumes:
+      - /var/log/nginx:/var/log/nginx
+    depends_on:
+      - app
+
+networks:
+  default:
+    driver: bridge
+    name: social_networking_network
